@@ -6,17 +6,28 @@ class Pokedex {
     this.pokemonName = document.querySelector('.pokemon-name');
     this.PokeAbilities = document.querySelector('.pokemon-abilities');
 
+    this.hpBaseStat = document.querySelector('.hp-base-stat');
+    this.attackBaseStat = document.querySelector('.attack-base-stat');
+    this.defenseBaseStat = document.querySelector('.defense-base-stat');
+    this.spAttackBaseStat = document.querySelector('.sp-attack-base-stat');
+    this.spDefenseBaseStat = document.querySelector('.sp-defense-base-stat');
+    this.speedBaseStat = document.querySelector('.speed-base-stat');
+
+    this.baseStat = document.querySelectorAll('.base-stat');
+
     this.searchButton.addEventListener('click', () => {
       this.PokeAbilities.innerHTML = ''
       
       this.fetchPokedex()
       this.searchInput.innerHTML = ''
+      this.baseStat.innerHTML = ''
     });
     document.addEventListener('keydown', (event) => {
       if (event.key === 'Enter') {
         this.PokeAbilities.innerHTML = ''
         this.fetchPokedex()
         this.searchInput.innerHTML = ''
+        this.baseStat.innerHTML = ''
       }
     })
   }
@@ -36,6 +47,8 @@ class Pokedex {
         this.displayPokeNameAndImage(pokedexData)
 
         this.displayPokeAbilities(pokedexData)
+
+        this.displayPokeStats(pokedexData)
         
     }
     catch(error) {
@@ -62,6 +75,17 @@ class Pokedex {
       this.PokeAbilities.appendChild(abilityName)
     })
     
+  }
+
+  displayPokeStats(pokedexData) {
+
+    this.hpBaseStat.textContent = pokedexData.stats[0].base_stat;
+    this.attackBaseStat.textContent = pokedexData.stats[1].base_stat;
+    this.defenseBaseStat.textContent = pokedexData.stats[2].base_stat;
+    this.spAttackBaseStat.textContent = pokedexData.stats[3].base_stat;
+    this.spDefenseBaseStat.textContent = pokedexData.stats[4].base_stat;
+    this.speedBaseStat.textContent = pokedexData.stats[5].base_stat;
+
   }
 }
 
