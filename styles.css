@@ -9,6 +9,23 @@ main {
     color: white;
 }
 
+.suggestions ul {
+    padding: 0.3rem;
+    margin: 0;
+}
+
+.suggestions li {
+    color: black;
+    list-style: none;
+    cursor: pointer;
+    transition: 0.3s;
+    padding: 0.3rem 0;
+
+    &:hover {
+        background-color: lightblue;
+    }
+}
+
 .card {
     padding: 2rem;
     background: linear-gradient(90deg, rgba(181,13,46,1) 0%, rgba(182,36,61,1) 35%, rgba(209,71,123,1) 62%, rgba(212,0,43,1) 100%);
@@ -46,6 +63,19 @@ main {
     color: white;
     background-color: transparent;
     cursor: pointer;
+}
+
+.suggestions {
+    width: 12.4rem;
+    background-color: white;
+    max-height: 15rem;
+    overflow-y: scroll;
+    position: absolute;
+    border-radius: 0.3rem;
+
+    p {
+        color: black;
+    }
 }
 
 .pokemon-name {
